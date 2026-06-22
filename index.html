@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImagePro - Image Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 ImagePro</h1>
+            <p>Resize images & remove green screen</p>
+        </header>
+
+        <main>
+            <div class="controls-section">
+                <div class="input-group">
+                    <label for="imageInput">Upload Image:</label>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+
+                <div class="settings-panel">
+                    <div class="setting-group">
+                        <label for="width">Width (px):</label>
+                        <input type="number" id="width" value="800" min="10" max="4000">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="height">Height (px):</label>
+                        <input type="number" id="height" value="600" min="10" max="4000">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="maintainAspect">
+                            <input type="checkbox" id="maintainAspect" checked>
+                            Maintain aspect ratio
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="removeGreenScreen">
+                            <input type="checkbox" id="removeGreenScreen">
+                            Remove Green Screen
+                        </label>
+                    </div>
+
+                    <div class="setting-group" id="toleranceGroup" style="display: none;">
+                        <label for="tolerance">Green Screen Tolerance (0-100):</label>
+                        <input type="range" id="tolerance" min="0" max="100" value="30">
+                        <span id="toleranceValue">30</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="processBtn" class="btn btn-primary">Process Image</button>
+                    <button id="downloadBtn" class="btn btn-secondary" disabled>Download</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+
+            <div class="preview-section">
+                <div class="preview-box">
+                    <h3>Original</h3>
+                    <canvas id="originalCanvas"></canvas>
+                    <p id="originalInfo"></p>
+                </div>
+
+                <div class="preview-box">
+                    <h3>Processed</h3>
+                    <canvas id="processedCanvas"></canvas>
+                    <p id="processedInfo"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ | ImagePro v1.0</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
